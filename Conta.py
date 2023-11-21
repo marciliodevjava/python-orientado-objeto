@@ -2,10 +2,10 @@ class Conta:
 
     def __init__(self, numero:int, titular:str, saldo:float, limite:float):
         print("Construinfo objeto ... {}".format(self))
-        self.__numero = numero
-        self.__titular = titular
-        self.__saldo = saldo
-        self.__limite = limite
+        self.__numero = int(numero)
+        self.__titular = str(titular)
+        self.__saldo = float(saldo)
+        self.__limite = float(limite)
 
     def saca(self, valor):
         if self.__saldo >= valor:
