@@ -8,14 +8,14 @@ class Conta:
         self.__limite = float(limite)
 
     def saca(self, valor):
-        if self.__saldo >= valor:
-            self.__saldo -= valor
+        if self.__saldo >= float(valor):
+            self.__saldo -= float(valor)
             return "Saque realiado de R$:{}".format(float(valor))
 
         return "Seu Saldo é {}".format(float(self.__saldo))
 
     def deposita(self, valor):
-        self.__saldo += valor
+        self.__saldo += float(valor)
         return "Seu Saldo é R$:{}".format(float(self.__saldo))
 
     def extrato(self):
@@ -24,9 +24,9 @@ class Conta:
         print("Limite de credito R$:{}".format(float(self.__limite)))
 
     def transferir(self, conta, valor):
-        if self.__saldo >= valor:
-            self.__saldo -= valor
-            conta.__saldo += valor
+        if self.__saldo >= float(valor):
+            self.__saldo -= float(valor)
+            conta.__saldo += float(valor)
             return "Transferencia Realidade de R$:{}".format(float(valor))
 
         return "Saldo insuficiente R$:{}".format(float(self.__saldo))
