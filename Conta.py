@@ -28,7 +28,7 @@ class Conta:
         return self.__limite
 
     def set_limite(self, limite):
-        self.__limite = limite
+        self.__limite = float(limite)
 
     def get_data(self):
         return self.__data
