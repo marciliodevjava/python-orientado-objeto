@@ -22,3 +22,10 @@ class Conta:
 
     def extrato(self):
         return "Saldo R$:{}".format(float(self.saldo))
+
+    def transferir(self, conta, valor):
+        if self.saldo >= valor:
+            self.saldo -= valor
+            conta.saldo += valor
+            return "Transferencia Realidade de R$:{}".format(float(valor))
+        return "Saldo insuficiente R$:{}".format(float(self.saldo))
