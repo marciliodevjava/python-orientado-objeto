@@ -10,6 +10,29 @@ class Conta:
         self.__limite = float(limite)
         self.__data = self.formata_data()
 
+    def get_saldo(self):
+        return self.__saldo
+
+    def get_titular(self):
+        return self.__titular
+
+    def set_titular(self, titular):
+        self.__titular = str(titular)
+    def get_agencia(self):
+        return self.__agencia
+
+    def get_numero(self):
+        return self.__numero
+
+    def get_limite(self):
+        return self.__limite
+
+    def set_limite(self, limite):
+        self.__limite = limite
+
+    def get_data(self):
+        return self.__data
+
     def saca(self, valor):
         if self.__saldo >= float(valor):
             self.__saldo -= float(valor)
@@ -51,26 +74,4 @@ class Conta:
         self.__data = self.formata_data()
         print("Conta fechada com sucesso.")
 
-    def get_saldo(self):
-        return self.__saldo
-
-    def get_titular(self):
-        return self.__titular
-
-    def set_titular(self, titular):
-        self.__titular = str(titular)
-    def get_agencia(self):
-        return self.__agencia
-
-    def get_numero(self):
-        return self.__numero
-
-    def get_limite(self):
-        return self.__limite
-
-    def set_limite(self, limite):
-        self.__limite = limite
-
-    def get_data(self):
-        return self.__data
 
