@@ -1,6 +1,6 @@
 class Conta:
 
-    def __init__(self, numero:int, titular:str, saldo:float, limite:float):
+    def __init__(self, numero, titular, saldo, limite):
         print("Construinfo objeto ... {}".format(self))
         self.__numero = int(numero)
         self.__titular = str(titular)
@@ -26,7 +26,7 @@ class Conta:
     def transferir(self, conta, valor):
         if self.__saldo >= valor:
             self.__saldo -= valor
-            conta.saldo += valor
+            conta.__saldo += valor
             return "Transferencia Realidade de R$:{}".format(float(valor))
 
         return "Saldo insuficiente R$:{}".format(float(self.__saldo))
