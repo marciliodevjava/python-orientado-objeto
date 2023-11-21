@@ -9,9 +9,16 @@ class Conta:
         self.saldo = saldo
         self.limite = limite
 
-    def sacar(self, conta, valor):
+    def saca(self, conta, valor):
         if conta.saldo >= valor:
             self.saldo -= valor
             return "Saque realiado de R$:{}".format(float(valor))
 
         return "Seu Saldo é {}".format(float(conta.saldo))
+
+    def deposita(self, valor):
+        self.saldo += valor
+        return "Seu Saldo é R$:{}".format(float(self.saldo))
+
+    def extrato(self):
+        return "Saldo R$:{}".format(float(self.saldo))
