@@ -9,6 +9,7 @@ class Conta:
         self.__saldo = float(saldo)
         self.__limite = float(limite)
         self.__data = self.formata_data()
+        self.__conta_fechada = False
 
     def get_saldo(self):
         return self.__saldo
@@ -72,6 +73,7 @@ class Conta:
         self.__saldo = None
         self.__limite = None
         self.__agencia = None
+        self.__conta_fechada = True
         self.__data = self.formata_data()
         print("Conta fechada com sucesso.")
 
