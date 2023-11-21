@@ -71,6 +71,7 @@ class Conta:
         self.__titular = None
         self.__saldo = None
         self.__limite = None
+        self.__agencia = None
         self.__data = self.formata_data()
         print("Conta fechada com sucesso.")
 
