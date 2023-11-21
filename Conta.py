@@ -19,7 +19,9 @@ class Conta:
         return "Seu Saldo é R$:{}".format(float(self.saldo))
 
     def extrato(self):
-        return "Saldo R$:{}".format(float(self.saldo))
+        print("Nome: {}".format(self.titular))
+        print("Saldo R$:{}".format(float(self.saldo)))
+        print("Limite de credito R$:{}".format(float(self.limite)))
 
     def transferir(self, conta, valor):
         if self.saldo >= valor:
