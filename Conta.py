@@ -1,9 +1,10 @@
 from datetime import datetime
 class Conta:
 
-    def __init__(self, numero, titular, saldo, limite):
+    def __init__(self, numero, agencia, titular, saldo, limite):
         print("Construinfo objeto ... {}".format(self))
         self.__numero = int(numero)
+        self.__agencia = int(agencia)
         self.__titular = str(titular)
         self.__saldo = float(saldo)
         self.__limite = float(limite)
@@ -21,6 +22,8 @@ class Conta:
         return "Seu Saldo é R$:{}".format(float(self.__saldo))
 
     def extrato(self):
+        print("Número: {}".format(self.__numero))
+        print("Agencia: {}".format(self.__agencia))
         print("Nome: {}".format(self.__titular))
         print("Saldo R$:{}".format(float(self.__saldo)))
         print("Limite de credito R$:{}".format(float(self.__limite)))
@@ -38,3 +41,13 @@ class Conta:
         data_atual = datetime.now()
         data_formatada = data_atual.strftime("%m-%d-%Y")
         return data_formatada
+
+    def fechar_conta(self):
+        print("Fechando a conta.")
+        self.__numero = None
+        self.__titular = None
+        self.__saldo = None
+        self.__limite = None
+        self.__data = self.formata_data()
+        print("Conta fechada com sucesso.")
+
