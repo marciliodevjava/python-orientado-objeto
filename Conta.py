@@ -1,3 +1,4 @@
+from datetime import datetime
 class Conta:
 
     def __init__(self, numero, titular, saldo, limite):
@@ -6,6 +7,7 @@ class Conta:
         self.__titular = str(titular)
         self.__saldo = float(saldo)
         self.__limite = float(limite)
+        self.__data = self.formata_data()
 
     def saca(self, valor):
         if self.__saldo >= float(valor):
@@ -22,6 +24,7 @@ class Conta:
         print("Nome: {}".format(self.__titular))
         print("Saldo R$:{}".format(float(self.__saldo)))
         print("Limite de credito R$:{}".format(float(self.__limite)))
+        print("Data de Abertura de conta {}".format(self.__data))
 
     def transferir(self, conta, valor):
         if self.__saldo >= float(valor):
@@ -30,3 +33,8 @@ class Conta:
             return "Transferencia Realidade de R$:{}".format(float(valor))
 
         return "Saldo insuficiente R$:{}".format(float(self.__saldo))
+
+    def formata_data(self):
+        data_atual = datetime.now()
+        data_formatada = data_atual.strftime("%m-%d-%Y")
+        return data_formatada
