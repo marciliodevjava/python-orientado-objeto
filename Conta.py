@@ -11,6 +11,7 @@ class Conta:
         self.__data = self.formata_data()
         self.__valor_devido = float(0.0)
         self.__valor_limite = self.__limite
+        self.__codigo_banco = "001"
         self.__conta_fechada = False
 
     @property
@@ -63,6 +64,7 @@ class Conta:
         print("Saldo R$:{}".format(float(self.__saldo)))
         print("Limite de credito R$:{}".format(float(self.__limite)))
         print(("Valor devido R$: {}".format(self.__valor_devido)))
+        print("Codigo do Banco do Brasil {}".format(self.__codigo_banco))
         print("Data de Abertura de conta {}".format(self.__data))
 
     def transferir(self, conta, valor):
@@ -110,3 +112,11 @@ class Conta:
                 return "Não existe valores a serem pagos"
         else:
             return "Não foi possivel pagar a conta"
+
+    @staticmethod
+    def codigo_banco():
+        return "001"
+
+    @staticmethod
+    def codigos_dos_bancos():
+        return {'Banco do Brasil:':'001', 'Caixa Economica':'104', 'Bradesco':'237'}
