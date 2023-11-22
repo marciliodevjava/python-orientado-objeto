@@ -86,6 +86,7 @@ class Conta:
         self.__limite = None
         self.__agencia = None
         self.__conta_fechada = True
+        self.__valor_devido = None
         self.__data = self.formata_data()
         print("Conta fechada com sucesso.")
 
