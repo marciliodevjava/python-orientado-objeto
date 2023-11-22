@@ -87,11 +87,11 @@ class Conta:
         print("Fechando a conta.")
         self.__numero = None
         self.__titular = None
-        self.__saldo = None
-        self.__limite = None
+        self.__saldo = float(0.0)
+        self.__limite = float(0.0)
         self.__agencia = None
         self.__conta_fechada = True
-        self.__valor_devido = None
+        self.__valor_devido = float(0.0)
         self.__data = self.__formata_data()
         print("Conta fechada com sucesso.")
 

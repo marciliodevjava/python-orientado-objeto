@@ -14,3 +14,6 @@ class TestConta:
     print(separado)
     conta.pagar_conta()
     conta.extrato()
+    print(separado)
+    conta.fechar_conta()
+    conta.extrato()
