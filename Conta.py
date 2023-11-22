@@ -84,16 +84,24 @@ class Conta:
         return data_formatada
 
     def fechar_conta(self):
-        print("Fechando a conta.")
-        self.__numero = None
-        self.__titular = None
-        self.__saldo = float(0.0)
-        self.__limite = float(0.0)
-        self.__agencia = None
-        self.__conta_fechada = True
-        self.__valor_devido = float(0.0)
-        self.__data = self.__formata_data()
-        print("Conta fechada com sucesso.")
+        if self.validar_conta_fechar():
+            print("Fechando a conta.")
+            self.__numero = None
+            self.__titular = None
+            self.__saldo = float(0.0)
+            self.__limite = float(0.0)
+            self.__agencia = None
+            self.__conta_fechada = True
+            self.__valor_devido = float(0.0)
+            self.__data = self.__formata_data()
+            print("Conta fechada com sucesso.")
+        else:
+            return "Nã foi possivel fechar a conta, pois á Saldo R$: {} ou Débitos R$: {}".format(self.__saldo,
+                                                                                                  self.__valor_devido)
+
+    def validar_conta_fechar(self):
+        if self.__saldo == 0 and self.__valor_devido == 0:
+            return True
 
     def pagar_conta(self):
         if self.__saldo >= 1 and self.__valor_devido > 0:
