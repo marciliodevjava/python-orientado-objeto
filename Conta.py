@@ -90,15 +90,16 @@ class Conta:
 
     def pagar_conta(self):
         if self.__saldo >= 1:
+            valor_pago = float(0)
             valor_devido = self.__valor_devido
             valor_saldo = self.__saldo
             self.__valor_devido -= self.__saldo
             self.__limite += self.saldo
             if self.__saldo <= self.__valor_devido:
                 self.__saldo = float(0.0)
+                valor_pago = valor_devido - self.__valor_devido
             else:
                 self.__saldo -= valor_devido
-
-            valor_pago = valor_devido - self.__valor_devido
+                valor_pago = valor_devido - self.__valor_devido
             return "Conta paga com sucesso R$: {}".format(float(valor_pago))
 
