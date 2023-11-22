@@ -18,5 +18,14 @@ class Cliente:
         return self.__nome
 
     @property
-    def get_nome(self):
+    def nome(self):
         return self.__nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome.title()
+
+
+    def set_nome(self, nome):
+        self.__nome = nome.title()
+
