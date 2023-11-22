@@ -11,13 +11,16 @@ class Conta:
         self.__data = self.formata_data()
         self.__conta_fechada = False
 
-    def get_saldo(self):
+    @property
+    def saldo(self):
         return self.__saldo
 
-    def get_titular(self):
+    @property
+    def titular(self):
         return self.__titular
 
-    def set_titular(self, titular):
+    @titular.setter
+    def titular(self, titular):
         self.__titular = str(titular)
     def get_agencia(self):
         return self.__agencia
