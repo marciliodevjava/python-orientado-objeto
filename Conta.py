@@ -90,7 +90,7 @@ class Conta:
         print("Conta fechada com sucesso.")
 
     def pagar_conta(self):
-        if self.__saldo >= 1:
+        if self.__saldo >= 1 and self.__valor_devido > 0 :
             valor_pago = float(0)
             valor_devido = self.__valor_devido
             valor_saldo = self.__saldo
@@ -105,5 +105,7 @@ class Conta:
                 self.__valor_devido = float(0)
                 valor_pago = valor_devido - self.__valor_devido
             return "Conta paga com sucesso R$: {}".format(float(valor_pago))
+        elif self.__valor_devido <= 0:
+                return "Não existe valores a serem pagos"
         else:
             return "Não foi possivel pagar a conta"
