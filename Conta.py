@@ -1,4 +1,6 @@
 from datetime import datetime
+
+
 class Conta:
 
     def __init__(self, numero, agencia, titular, saldo, limite):
@@ -8,7 +10,7 @@ class Conta:
         self.__titular = str(titular)
         self.__saldo = float(saldo)
         self.__limite = float(limite)
-        self.__data = self.formata_data()
+        self.__data = self.__formata_data()
         self.__valor_devido = float(0.0)
         self.__valor_limite = self.__limite
         self.__codigo_banco = "001"
@@ -25,6 +27,7 @@ class Conta:
     @titular.setter
     def titular(self, titular):
         self.__titular = str(titular)
+
     def get_agencia(self):
         return self.__agencia
 
@@ -75,7 +78,7 @@ class Conta:
 
         return "Saldo insuficiente R$:{}".format(float(self.__saldo))
 
-    def formata_data(self):
+    def __formata_data(self):
         data_atual = datetime.now()
         data_formatada = data_atual.strftime("%m-%d-%Y")
         return data_formatada
@@ -89,11 +92,11 @@ class Conta:
         self.__agencia = None
         self.__conta_fechada = True
         self.__valor_devido = None
-        self.__data = self.formata_data()
+        self.__data = self.__formata_data()
         print("Conta fechada com sucesso.")
 
     def pagar_conta(self):
-        if self.__saldo >= 1 and self.__valor_devido > 0 :
+        if self.__saldo >= 1 and self.__valor_devido > 0:
             valor_pago = float(0)
             valor_devido = self.__valor_devido
             valor_saldo = self.__saldo
@@ -109,7 +112,7 @@ class Conta:
                 valor_pago = valor_devido - self.__valor_devido
             return "Conta paga com sucesso R$: {}".format(float(valor_pago))
         elif self.__valor_devido <= 0:
-                return "Não existe valores a serem pagos"
+            return "Não existe valores a serem pagos"
         else:
             return "Não foi possivel pagar a conta"
 
@@ -119,4 +122,4 @@ class Conta:
 
     @staticmethod
     def codigos_dos_bancos():
-        return {'Banco do Brasil':'001', 'Caixa Economica':'104', 'Bradesco':'237'}
+        return {'Banco do Brasil': '001', 'Caixa Economica': '104', 'Bradesco': '237'}
