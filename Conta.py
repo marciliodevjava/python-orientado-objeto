@@ -10,6 +10,7 @@ class Conta:
         self.__limite = float(limite)
         self.__data = self.formata_data()
         self.__valor_devido = float(0.0)
+        self.__valor_limite = self.__limite
         self.__conta_fechada = False
 
     @property
@@ -93,13 +94,16 @@ class Conta:
             valor_pago = float(0)
             valor_devido = self.__valor_devido
             valor_saldo = self.__saldo
-            self.__valor_devido -= self.__saldo
-            self.__limite += self.saldo
             if self.__saldo <= self.__valor_devido:
                 self.__saldo = float(0.0)
+                self.__valor_devido -= self.__saldo
+                self.__limite += self.saldo
                 valor_pago = valor_devido - self.__valor_devido
             else:
                 self.__saldo -= valor_devido
+                self.__limite = self.__valor_limite
+                self.__valor_devido = float(0)
                 valor_pago = valor_devido - self.__valor_devido
             return "Conta paga com sucesso R$: {}".format(float(valor_pago))
-
+        else:
+            return "Não foi possivel pagar a conta"
